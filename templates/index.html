@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <title>GOLD</title>
+</head>
+<body>
+    <div id="starter">
+        <p id="plabel">Your Gold:</p>
+        <div id="label">{{ session['gold'] }}</div>
+    </div>
+    <div id="container">
+        <div class="insider">
+            <h2>Farm</h2>
+            <p>(earns 10-20 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="gold" value="farm">
+                <input  class="button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+            
+        <div class="insider">
+            <h2>Cave</h2>
+            <p>(earns 5-10 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="gold" value="cave">
+                <input  class="button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+            
+        <div class="insider">
+            <h2>House</h2>
+            <p>(earns 2-5 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="gold" value="house">
+                <input class="button" type="submit" value="Find Gold!">
+            </form>
+        </div>
+            
+        <div class="insider">
+            <h2>Casino</h2>
+            <p>(earns/takes 0-50 golds)</p>
+            <form action="/process_money" method="POST">
+                <input type="hidden" name="gold" value="casino">
+                <input class ='button' type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div>
+    <p>Activities:</p>
+    <div id="bottom">
+        <ul>
+            {%for i in arr:%}
+                    {% if '-' in i: %}
+                        <li style="color: red;">{{ i }}</li>
+                    {% else: %}
+                        <li>{{ i }}</li>
+                    {% endif %}
+            {%endfor%}
+        </ul>
+    </div>
+</body>
+</html>
