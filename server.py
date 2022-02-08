@@ -24,7 +24,7 @@ def money():
     elif request.form['gold'] == 'casino'and 'gold' in session:
         session['gold'] += casino_num
         if casino_num > 0:
-            arr.append(f'Earned {casino_num} from the cave!')
+            arr.append(f'Earned {casino_num} from the casino!')
         else:
             arr.append(f'Entered a casino and lost {casino_num} gold!')
     else:
