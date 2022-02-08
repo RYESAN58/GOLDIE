@@ -53,7 +53,7 @@
     <div id="bottom">
         <ul>
             {%for i in arr:%}
-                    {% if '-' in i: %}
+                    {% if 'lost' in i: %}
                         <li style="color: red;">{{ i }}</li>
                     {% else: %}
                         <li>{{ i }}</li>
